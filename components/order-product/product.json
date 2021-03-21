@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_order_product_products",
+  "info": {
+    "name": "Product",
+    "icon": "dragon",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "product": {
+      "model": "product"
+    },
+    "quantity": {
+      "type": "integer"
+    },
+    "variant": {
+      "type": "component",
+      "repeatable": false,
+      "component": "attribute.color"
+    }
+  }
+}

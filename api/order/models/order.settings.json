@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "orders",
+  "info": {
+    "name": "Order",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "delivery_address": {
+      "model": "address"
+    },
+    "amount": {
+      "type": "decimal"
+    },
+    "subtotal": {
+      "type": "decimal"
+    },
+    "deliveryFee": {
+      "type": "decimal"
+    },
+    "discount": {
+      "type": "decimal"
+    },
+    "product": {
+      "type": "component",
+      "repeatable": true,
+      "component": "order-product.product"
+    },
+    "user": {
+      "plugin": "users-permissions",
+      "model": "user",
+      "via": "orders"
+    }
+  }
+}

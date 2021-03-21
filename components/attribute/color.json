@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_attribute_colors",
+  "info": {
+    "name": "Color",
+    "icon": "cookie-bite",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "value": {
+      "type": "string"
+    },
+    "stock": {
+      "type": "integer",
+      "default": 0
+    },
+    "Image": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    }
+  }
+}

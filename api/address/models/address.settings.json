@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "addresses",
+  "info": {
+    "name": "Address"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "info": {
+      "type": "text"
+    },
+    "type": {
+      "type": "string"
+    },
+    "phone": {
+      "type": "string"
+    },
+    "user": {
+      "via": "addresses",
+      "plugin": "users-permissions",
+      "model": "user"
+    }
+  }
+}
