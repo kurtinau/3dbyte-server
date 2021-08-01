@@ -2,12 +2,13 @@
   "kind": "collectionType",
   "collectionName": "cards",
   "info": {
-    "name": "Card"
+    "name": "Card",
+    "description": ""
   },
   "options": {
     "increments": true,
     "timestamps": true,
-    "draftAndPublish": true
+    "draftAndPublish": false
   },
   "attributes": {
     "type": {
@@ -26,6 +27,11 @@
       "via": "cards",
       "plugin": "users-permissions",
       "model": "user"
+    },
+    "isPrimary": {
+      "type": "boolean",
+      "default": false,
+      "required": true
     }
   }
 }

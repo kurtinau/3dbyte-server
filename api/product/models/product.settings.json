@@ -35,7 +35,7 @@
       "default": 0
     },
     "weight": {
-      "type": "integer",
+      "type": "decimal",
       "default": 0
     },
     "shortDescription": {
@@ -53,7 +53,8 @@
         "videos"
       ],
       "plugin": "upload",
-      "required": false
+      "required": false,
+      "pluginOptions": {}
     },
     "categories": {
       "collection": "category",
@@ -65,10 +66,28 @@
       "default": -1,
       "required": true
     },
-    "Color": {
-      "type": "component",
-      "repeatable": true,
-      "component": "attribute.color"
+    "variants": {
+      "type": "dynamiczone",
+      "components": [
+        "variant.color",
+        "variant.size"
+      ]
+    },
+    "height": {
+      "type": "decimal",
+      "default": 0
+    },
+    "width": {
+      "type": "decimal",
+      "default": 0
+    },
+    "length_": {
+      "type": "decimal",
+      "default": 0
+    },
+    "brand": {
+      "type": "string",
+      "default": "unbrand"
     }
   }
 }

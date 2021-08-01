@@ -60,16 +60,26 @@
       "configurable": false
     },
     "addresses": {
-      "collection": "address",
-      "via": "user"
+      "via": "user",
+      "collection": "address"
     },
     "cards": {
-      "collection": "card",
-      "via": "user"
+      "via": "user",
+      "collection": "card"
     },
     "orders": {
       "via": "user",
       "collection": "order"
+    },
+    "contacts": {
+      "via": "user",
+      "collection": "contact"
+    },
+    "firstName": {
+      "type": "string"
+    },
+    "lastName": {
+      "type": "string"
     }
   }
 }

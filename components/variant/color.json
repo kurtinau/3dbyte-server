@@ -14,7 +14,7 @@
       "type": "integer",
       "default": 0
     },
-    "Image": {
+    "image": {
       "collection": "file",
       "via": "related",
       "allowedTypes": [
@@ -23,7 +23,8 @@
         "videos"
       ],
       "plugin": "upload",
-      "required": false
+      "required": false,
+      "pluginOptions": {}
     }
   }
 }

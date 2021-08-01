@@ -1,0 +1,34 @@
+{
+  "collectionName": "components_variant_sizes",
+  "info": {
+    "name": "Size",
+    "icon": "chart-bar",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "height": {
+      "type": "decimal",
+      "default": 0
+    },
+    "width": {
+      "type": "decimal",
+      "default": 0
+    },
+    "length_": {
+      "type": "decimal",
+      "default": 0
+    },
+    "stock": {
+      "type": "integer",
+      "default": 0
+    },
+    "value": {
+      "type": "string"
+    },
+    "weight": {
+      "type": "decimal",
+      "default": 0
+    }
+  }
+}

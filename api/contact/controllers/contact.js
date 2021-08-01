@@ -19,12 +19,12 @@ module.exports = {
     if (ctx.is("multipart")) {
       const { data, files } = parseMultipartData(ctx);
       data.user = ctx.state.user.id;
-      entity = await strapi.services.address.create(data, { files });
+      entity = await strapi.services.contact.create(data, { files });
     } else {
       ctx.request.body.user = ctx.state.user.id;
-      entity = await strapi.services.address.create(ctx.request.body);
+      entity = await strapi.services.contact.create(ctx.request.body);
     }
-    return sanitizeEntity(entity, { model: strapi.models.address });
+    return sanitizeEntity(entity, { model: strapi.models.contact });
   },
 
   /**
@@ -36,20 +36,20 @@ module.exports = {
   async find(ctx) {
     let entities;
     if (ctx.query._q) {
-      entities = await strapi.services.address.search({
+      entities = await strapi.services.contact.search({
         ...ctx.query,
         "user.id": ctx.state.user.id,
       });
     } else {
-      // entities = await strapi.services.address.find(ctx.query);
-      entities = await strapi.services.address.find({
+      // entities = await strapi.services.contact.find(ctx.query);
+      entities = await strapi.services.contact.find({
         ...ctx.query,
         "user.id": ctx.state.user.id,
       });
     }
 
     return entities.map((entity) =>
-      sanitizeEntity(entity, { model: strapi.models.address })
+      sanitizeEntity(entity, { model: strapi.models.contact })
     );
   },
 
@@ -60,16 +60,16 @@ module.exports = {
    */
 
   async findOne(ctx) {
-    const [address] = await strapi.services.address.find({
+    const [contact] = await strapi.services.contact.find({
       id: ctx.params.id,
       "user.id": ctx.state.user.id,
     });
 
-    if (!address) {
+    if (!contact) {
       return handleErrors(ctx, undefined, "forbidden");
     }
 
-    return sanitizeEntity(address, { model: strapi.models.address });
+    return sanitizeEntity(contact, { model: strapi.models.contact });
   },
 
   /**
@@ -83,25 +83,25 @@ module.exports = {
 
     let entity;
 
-    const [address] = await strapi.services.address.find({
+    const [contact] = await strapi.services.contact.find({
       id: ctx.params.id,
       "user.id": ctx.state.user.id,
     });
 
-    if (!address) {
+    if (!contact) {
       return handleErrors(ctx, undefined, "forbidden");
     }
 
     if (ctx.is("multipart")) {
       const { data, files } = parseMultipartData(ctx);
-      entity = await strapi.services.address.update({ id }, data, {
+      entity = await strapi.services.contact.update({ id }, data, {
         files,
       });
     } else {
-      entity = await strapi.services.address.update({ id }, ctx.request.body);
+      entity = await strapi.services.contact.update({ id }, ctx.request.body);
     }
 
-    return sanitizeEntity(entity, { model: strapi.models.address });
+    return sanitizeEntity(entity, { model: strapi.models.contact });
   },
 
   /**
@@ -115,17 +115,16 @@ module.exports = {
 
     let entity;
 
-    const [address] = await strapi.services.address.find({
+    const [contact] = await strapi.services.contact.find({
       id: ctx.params.id,
       "user.id": ctx.state.user.id,
     });
 
-    if (!address) {
+    if (!contact) {
       return handleErrors(ctx, undefined, "forbidden");
     }
-
-    entity = await strapi.services.address.delete({ id });
-    return sanitizeEntity(entity, { model: strapi.models.address });
+    entity = await strapi.services.contact.delete({ id });
+    return sanitizeEntity(entity, { model: strapi.models.contact });
   },
 
   /**
@@ -138,30 +137,29 @@ module.exports = {
     const { id } = ctx.params;
 
     let entity;
-    const [address] = await strapi.services.address.find({
+    const [contact] = await strapi.services.contact.find({
       id: ctx.params.id,
       "user.id": ctx.state.user.id,
     });
-
-    if (!address) {
+    if (!contact) {
       return handleErrors(ctx, undefined, "forbidden");
     } else {
-      const [addressWithTruePrimary] = await strapi.services.address.find({
+      const [contactWithTruePrimary] = await strapi.services.contact.find({
         isPrimary: true,
         "user.id": ctx.state.user.id,
       });
-      if (addressWithTruePrimary) {
-        await strapi.services.address.update(
-          { id: addressWithTruePrimary.id },
+      if (contactWithTruePrimary) {
+        await strapi.services.contact.update(
+          { id: contactWithTruePrimary.id },
           { isPrimary: false }
         );
       }
 
-      entity = await strapi.services.address.update(
+      entity = await strapi.services.contact.update(
         { id },
         { isPrimary: true }
       );
     }
-    return sanitizeEntity(entity, { model: strapi.models.address });
+    return sanitizeEntity(entity, { model: strapi.models.contact });
   },
 };

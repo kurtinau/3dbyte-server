@@ -2,7 +2,8 @@
   "kind": "collectionType",
   "collectionName": "addresses",
   "info": {
-    "name": "Address"
+    "name": "Address",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -10,22 +11,35 @@
     "draftAndPublish": false
   },
   "attributes": {
-    "name": {
+    "line1": {
       "type": "string"
     },
-    "info": {
-      "type": "text"
-    },
-    "type": {
+    "line2": {
       "type": "string"
     },
-    "phone": {
+    "suburb": {
+      "type": "string"
+    },
+    "state": {
       "type": "string"
     },
     "user": {
       "via": "addresses",
       "plugin": "users-permissions",
       "model": "user"
+    },
+    "postcode": {
+      "type": "string"
+    },
+    "isPrimary": {
+      "type": "boolean",
+      "default": false
+    },
+    "sla": {
+      "type": "string"
+    },
+    "pid": {
+      "type": "string"
     }
   }
 }

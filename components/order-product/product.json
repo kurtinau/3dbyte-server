@@ -16,7 +16,7 @@
     "variant": {
       "type": "component",
       "repeatable": false,
-      "component": "attribute.color"
+      "component": "variant.color"
     }
   }
 }

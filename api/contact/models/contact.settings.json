@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "contacts",
+  "info": {
+    "name": "Contact",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "attributes": {
+    "firstName": {
+      "type": "string",
+      "required": false
+    },
+    "lastName": {
+      "type": "string",
+      "required": false
+    },
+    "isPrimary": {
+      "type": "boolean",
+      "default": false
+    },
+    "phone": {
+      "type": "string",
+      "required": true
+    },
+    "user": {
+      "via": "contacts",
+      "plugin": "users-permissions",
+      "model": "user"
+    }
+  }
+}
